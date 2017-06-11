@@ -10,13 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var hero_service_1 = require("./hero.service");
-//constructor(private heroService: HeroService) { };
 var AppComponent = (function () {
     function AppComponent(heroService) {
         this.heroService = heroService;
         this.title = 'Tour of Heroes';
     }
-    AppComponent.prototype.getHeroes = function () { this.heroes = this.heroService.getHeroes(); };
+    AppComponent.prototype.getHeroes = function () {
+        var _this = this;
+        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+    };
     AppComponent.prototype.ngOnInit = function () { this.getHeroes(); };
     AppComponent.prototype.onSelect = function (hero) { this.selectedHero = hero; };
     return AppComponent;

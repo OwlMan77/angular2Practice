@@ -3,8 +3,6 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
-//constructor(private heroService: HeroService) { };
-
 @Component({
   selector: 'my-app',
   providers: [HeroService],
@@ -15,4 +13,4 @@ import { HeroService } from './hero.service';
 
 //use of our new class
 export class AppComponent  { title='Tour of Heroes'; selectedHero: Hero;
-HEROES: Hero[]; constructor(private heroService: HeroService) { } getHeroes(): void { this.heroes = this.heroService.getHeroes(); } ngOnInit(): void { this.getHeroes(); } onSelect(hero: Hero): void { this.selectedHero = hero; }}
+HEROES: Hero[]; constructor(private heroService: HeroService) { } getHeroes(): void { this.heroService.getHeroes().then(heroes => this.heroes = heroes); } ngOnInit(): void { this.getHeroes(); } onSelect(hero: Hero): void { this.selectedHero = hero; }}

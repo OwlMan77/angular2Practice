@@ -10,7 +10,7 @@ var mock_heroes_1 = require("./mock-heroes");
 var HeroService = (function () {
     function HeroService() {
     }
-    HeroService.prototype.getHeroes = function () { return mock_heroes_1.HEROES; };
+    HeroService.prototype.getHeroes = function () { return Promise.resolve(mock_heroes_1.HEROES); };
     return HeroService;
 }());
 HeroService = __decorate([
