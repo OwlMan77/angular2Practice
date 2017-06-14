@@ -6,14 +6,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var core_2 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms");
-var app_component_1 = require("./app.component");
-exports.AppComponent = app_component_1.AppComponent;
-var hero_detail_component_1 = require("./hero-detail.component");
-var heroes_component_1 = require("./heroes.component");
-var hero_service_1 = require("./hero.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
@@ -21,18 +13,22 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app', template: " <h1>{{title}}</h1> <my-heroes></my-heroes> "
-    })
+    core_1.Component({ selector: 'my-app', template: " <h1>{{title}}</h1> <my-heroes></my-heroes> " })
 ], AppComponent);
 exports.AppComponent = AppComponent;
+var core_2 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
+var forms_1 = require("@angular/forms");
+var hero_detail_component_1 = require("./hero-detail.component");
+var heroes_component_1 = require("./heroes.component");
+var hero_service_1 = require("./hero.service");
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    core_2.NgModule({ imports: [platform_browser_1.BrowserModule, forms_1.FormsModule], declarations: [app_component_1.AppComponent, hero_detail_component_1.HeroDetailComponent, heroes_component_1.HeroesComponent], providers: [hero_service_1.HeroService], bootstrap: [app_component_1.AppComponent] })
+    core_2.NgModule({ imports: [platform_browser_1.BrowserModule, forms_1.FormsModule], declarations: [AppComponent, hero_detail_component_1.HeroDetailComponent, heroes_component_1.HeroesComponent], providers: [hero_service_1.HeroService], bootstrap: [AppComponent] })
 ], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.component.js.map
