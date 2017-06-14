@@ -13,7 +13,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    core_1.Component({ selector: 'my-app', template: " <h1>{{title}}</h1> <my-heroes></my-heroes> " })
+    core_1.Component({ selector: 'my-app', template: "<h1>{{title}}</h1> <a routerLink=\"/heroes\">Heroes</a> <router-outlet></router-outlet>" })
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var core_2 = require("@angular/core");
