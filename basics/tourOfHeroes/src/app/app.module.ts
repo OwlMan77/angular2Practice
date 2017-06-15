@@ -8,7 +8,7 @@ import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
 import { DashboardComponent} from './dashboard.component'
 
-RouterModule.forRoot([ { path: 'heroes', component: HeroesComponent }, { path: 'dashboard', component: DashboardComponent } ]);
+RouterModule.forRoot([ { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, { path: 'heroes', component: HeroesComponent }, { path: 'dashboard', component: DashboardComponent } ]);
 
 @NgModule({
   imports: [ BrowserModule, FormsModule, RouterModule.forRoot([ { path: 'heroes', component: HeroesComponent } ]) ],
