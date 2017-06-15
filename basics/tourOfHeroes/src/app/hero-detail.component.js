@@ -8,8 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var _this = this;
 var core_1 = require("@angular/core");
-var hero_1 = require("./hero");
+var router_1 = require("@angular/router");
+var common_1 = require("@angular/common");
+var hero_service_1 = require("./hero.service");
+require("rxjs/add/operator/switchMap");
+constructor(private, heroService, hero_service_1.HeroService, private, route, router_1.ActivatedRoute, private, location, common_1.Location);
+{ }
+ngOnInit();
+void {
+    this: .route.params.switchMap(function (params) { return _this.heroService.getHero(+params['id']); }).subscribe(function (hero) { return _this.hero = hero; })
+};
 var HeroDetailComponent = (function () {
     function HeroDetailComponent() {
     }
@@ -17,7 +27,7 @@ var HeroDetailComponent = (function () {
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", hero_1.Hero)
+    __metadata("design:type", Object)
 ], HeroDetailComponent.prototype, "hero", void 0);
 HeroDetailComponent = __decorate([
     core_1.Component({
