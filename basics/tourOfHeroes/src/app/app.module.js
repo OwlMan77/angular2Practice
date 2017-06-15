@@ -13,7 +13,7 @@ var app_component_1 = require("./app.component");
 var hero_detail_component_1 = require("./hero-detail.component");
 var heroes_component_1 = require("./heroes.component");
 var hero_service_1 = require("./hero.service");
-router_1.RouterModule.forRoot([{ path: 'heroes', component: heroes_component_1.HeroesComponent }]);
+router_1.RouterModule.forRoot([{ path: 'heroes', component: heroes_component_1.HeroesComponent }, { path: 'dashboard', component: DashboardComponent }]);
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,7 +23,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule.forRoot([{ path: 'heroes', component: heroes_component_1.HeroesComponent }])],
         declarations: [app_component_1.AppComponent, hero_detail_component_1.HeroDetailComponent, heroes_component_1.HeroesComponent],
-        providers: [hero_service_1.HeroService], bootstrap: [app_component_1.AppComponent]
+        providers: [hero_service_1.HeroService],
+        bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;
