@@ -22,7 +22,7 @@ var DashboardComponent = (function () {
     return DashboardComponent;
 }());
 DashboardComponent = __decorate([
-    core_1.Component({ selector: 'my-dashboard', template: '<h3>My Dashboard</h3>' }),
+    core_1.Component({ selector: 'my-dashboard', templateUrl: './templates/dashboard.component.html', }),
     __metadata("design:paramtypes", [hero_service_1.HeroService])
 ], DashboardComponent);
 exports.DashboardComponent = DashboardComponent;
