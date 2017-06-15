@@ -28,7 +28,7 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    core_1.Component({ selector: 'my-dashboard', templateUrl: './dashboard.component.html', }),
+    core_1.Component({ selector: 'my-dashboard', templateUrl: './templates/dashboard.component.html', }),
     core_2.NgModule({ imports: [platform_browser_1.BrowserModule, forms_1.FormsModule], declarations: [AppComponent, hero_detail_component_1.HeroDetailComponent, heroes_component_1.HeroesComponent], providers: [hero_service_1.HeroService], bootstrap: [AppComponent] })
 ], AppModule);
 exports.AppModule = AppModule;
