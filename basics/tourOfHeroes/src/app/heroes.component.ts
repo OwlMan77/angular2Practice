@@ -11,5 +11,5 @@ import { HeroService } from './hero.service';
 })
 
 //use of our new class
-export class HeroesComponent implements OnInit{ title='Tour of Heroes'; selectedHero: Hero;
-heroes: Hero[]; constructor(private heroService: HeroService) { } getHeroes(): void { this.heroService.getHeroes().then(heroes => this.heroes = heroes); } ngOnInit(): void { this.getHeroes(); } onSelect(hero: Hero): void { this.selectedHero = hero; }}
+
+export class HeroesComponent implements OnInit { heroes: Hero[]; selectedHero: Hero; constructor( private router: Router, private heroService: HeroService) { } getHeroes(): void { this.heroService.getHeroes().then(heroes => this.heroes = heroes); } ngOnInit(): void { this.getHeroes(); } onSelect(hero: Hero): void { this.selectedHero = hero; } gotoDetail(): void { this.router.navigate(['/detail', this.selectedHero.id]); } }
