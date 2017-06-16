@@ -5,12 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-mport;
-{
-    NgModule;
-}
-from;
-'@angular/core';
+var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var dashboard_component_1 = require("./dashboard.component");
 var heroes_component_1 = require("./heroes.component");
@@ -22,7 +17,7 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 AppRoutingModule = __decorate([
-    NgModule({ imports: [router_1.RouterModule.forRoot(routes)], exports: [router_1.RouterModule] })
+    core_1.NgModule({ imports: [router_1.RouterModule.forRoot(routes)], exports: [router_1.RouterModule] })
 ], AppRoutingModule);
 exports.AppRoutingModule = AppRoutingModule;
 //# sourceMappingURL=app-routing.module.js.map
