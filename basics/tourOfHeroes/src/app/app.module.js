@@ -6,29 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
-var router_1 = require("@angular/router");
-var app_component_1 = require("./app.component");
+var http_1 = require("@angular/http");
+var app_routing_module_1 = require("./app-routing.module"); // Imports for loading & configuring the in-memory web api import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 var in_memory_data_service_1 = require("./in-memory-data.service");
-var hero_detail_component_1 = require("./hero-detail.component");
-var heroes_component_1 = require("./heroes.component");
-var hero_service_1 = require("./hero.service");
+var app_component_1 = require("./app.component");
 var dashboard_component_1 = require("./dashboard.component");
-var app_routing_module_1 = require("./app-routing.module");
+var heroes_component_1 = require("./heroes.component");
+var hero_detail_component_1 = require("./hero-detail.component");
+var hero_service_1 = require("./hero.service");
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    core_1.NgModule({
-        imports: [http_1.HttpModule, platform_browser_1.BrowserModule, forms_1.FormsModule, app_routing_module_1.AppRoutingModule, InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService), router_1.RouterModule.forRoot([{ path: 'heroes', component: heroes_component_1.HeroesComponent }, { path: 'dashboard', component: dashboard_component_1.DashboardComponent }, { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },])],
-        declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, hero_detail_component_1.HeroDetailComponent, heroes_component_1.HeroesComponent],
-        providers: [hero_service_1.HeroService],
-        bootstrap: [app_component_1.AppComponent]
-    })
+    core_1.NgModule({ imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService), app_routing_module_1.AppRoutingModule], declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent, hero_detail_component_1.HeroDetailComponent, heroes_component_1.HeroesComponent,], providers: [hero_service_1.HeroService], bootstrap: [app_component_1.AppComponent] })
 ], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map
