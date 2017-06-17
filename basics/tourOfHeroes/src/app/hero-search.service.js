@@ -9,27 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var Subject_1 = require("rxjs/Subject");
-// Observable class extensions
-require("rxjs/add/observable/of");
-// Observable operators
+var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-require("rxjs/add/operator/debounceTime");
-require("rxjs/add/operator/distinctUntilChanged");
-var hero_search_service_1 = require("./hero-search.service");
-var HeroSearchComponent = (function () {
-    function HeroSearchComponent(heroSearchService, router) {
-        this.heroSearchService = heroSearchService;
-        this.router = router;
-        this.searchTerms = new Subject_1.Subject();
+require("rxjs/add/observable/throw");
+var HeroSearchService = (function () {
+    function HeroSearchService(http) {
+        this.http = http;
     }
-    return HeroSearchComponent;
-}()); // Push a search term into the observable stream. search(term: string): void { this.searchTerms.next(term); } ngOnInit(): void { this.heroes = this.searchTerms .debounceTime(300) // wait 300ms after each keystroke before considering the term .distinctUntilChanged() // ignore if next search term is same as previous .switchMap(term => term // switch to new observable each time the term changes // return the http search observable ? this.heroSearchService.search(term) // or the observable of empty heroes if there was no search term : Observable.of<Hero[]>([])) .catch(error => { // TODO: add real error handling console.log(error); return Observable.of<Hero[]>([]); }); } gotoDetail(hero: Hero): void { let link = ['/detail', hero.id]; this.router.navigate(link); } }
-HeroSearchComponent = __decorate([
-    core_1.Component({ selector: 'hero-search', templateUrl: './templates/hero-search.component.html', styleUrls: ['./hero-search.component.css'], providers: [hero_search_service_1.HeroSearchService] }),
-    __metadata("design:paramtypes", [typeof (_a = typeof hero_search_service_1.HeroSearchService !== "undefined" && hero_search_service_1.HeroSearchService) === "function" && _a || Object, router_1.Router])
-], HeroSearchComponent);
-exports.HeroSearchComponent = HeroSearchComponent;
-var _a;
+    HeroSearchService.prototype.search = function (term) {
+        return this.http
+            .get("app/heroes/?name=" + term)
+            .map(function (r) { return r.json().data; })
+            .catch(function (error) {
+            console.error('An friendly error occurred', error);
+            return Observable_1.Observable.throw(error.message || error);
+        });
+    };
+    return HeroSearchService;
+}());
+HeroSearchService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], HeroSearchService);
+exports.HeroSearchService = HeroSearchService;
 //# sourceMappingURL=hero-search.service.js.map
